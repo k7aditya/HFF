@@ -63,7 +63,7 @@ class MCDropoutUncertainty:
         with torch.no_grad():
             for _ in range(self.num_samples):
                 output = self.model(input1, input2)
-                outputs.append(output.cpu())
+                outputs.append(output[0].cpu())
         self.disable_dropout_inference()
         return outputs
 
