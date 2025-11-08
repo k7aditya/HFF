@@ -308,7 +308,7 @@ if __name__ == '__main__':
                     full_input = torch.cat((low_freq_inputs, high_freq_inputs), dim=1)
 
                     # MC forward passes with dropout active
-                    mc_outputs = mc_dropout.mc_forward_pass(full_input)
+                    mc_outputs = mc_dropout.mc_forward_pass(low_freq_inputs, high_freq_inputs)
 
                     mean_pred, uncertainty_map = mc_dropout.compute_uncertainty_maps(mc_outputs)
 
